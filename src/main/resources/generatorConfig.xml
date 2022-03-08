@@ -4,16 +4,14 @@
 <generatorConfiguration>
     <context id="simple" targetRuntime="MyBatis3Simple">
 
-        <commentGenerator>
-            <!--            no comments will be added to any generated element.-->
-            <!--            禁止评论会导致mxl生成重复-->
-            <property name="suppressAllComments" value="false"/>
-            <!--            table and columns remarks from db table will be added to the generated comments.-->
+        <commentGenerator type="com.fyeeme.mybatis.generator.CustomCommentGenerator">
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
             <property name="addRemarkComments" value="true"/>
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/mybatis"
+                        connectionURL="jdbc:mysql://localhost:3306/mybatis_spring"
                         userId="root"
                         password="root">
         </jdbcConnection>
@@ -23,6 +21,7 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.fyeeme.mybatis.dao"
                              targetProject="src/main/java"/>
         <!-- tableName is the table name in the database, domainObjectName is the name of the generated JAVA model, the following parameters do not need to be changed, to generate more tables, continue to add the table tag below -->
-        <table tableName="article"/>
+        <table tableName="media2"/>
+        <table tableName="volunteer_media"/>
     </context>
 </generatorConfiguration>

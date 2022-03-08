@@ -14,7 +14,7 @@
     <name>mybatis-spring</name>
     <description>mybatis-spring</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -48,6 +48,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.4.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -56,18 +61,17 @@
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
                 <version>1.4.0</version>
-                <configuration>
-                    <!-- 在控制台打印执行日志 -->
-                    <verbose>true</verbose>
-                    <!-- 重复生成时会覆盖之前的文件-->
-                    <overwrite>true</overwrite>
-                </configuration>
                 <!-- 数据库连接选择8.0以上的，因为用的mysql8.0-->
                 <dependencies>
                     <dependency>
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
                         <version>8.0.28</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.fyeeme</groupId>
+                        <artifactId>mybatis</artifactId>
+                        <version>0.0.1-SNAPSHOT</version>
                     </dependency>
                 </dependencies>
             </plugin>
